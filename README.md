@@ -1,5 +1,6 @@
-# Texas Hold'em Online Poker Server/ 德州扑克在线平台源码 / 德州撲克線上平台源码
-
+# Texas Hold'em Online Poker Server/德州源码  /德州扑克在线平台源码 / 德州撲克線上平台源码
+**德州扑克源码** · **在线多人德州扑克** · **Real-time Poker Server**  
+**金币大厅 + 俱乐部 + MTT锦标赛 | C++ 高性能服务端 | 支持多人实时对战**
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPLv3-blue.svg)](LICENSE)
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
@@ -9,6 +10,9 @@
 **生产级德州扑克服务端** — 已在真实线上环境盈利运营多年，与 HHpoker、WPK 等头部产品直接竞争。
 
 支持 SNG、MTT、经典德州、短牌、德州牛仔、奥马哈、大菠萝等 7+ 种玩法，内置语音聊天与联盟模式。
+
+
+一套生产级德州扑克在线平台源码，已在真实环境中运行多年。支持大厅、房间、俱乐部、锦标赛、投注引擎等完整功能，适合搭建商业级德州扑克平台。
 
 ## 📑 目录
 
@@ -57,20 +61,38 @@
 
 | 大厅界面 | 牌桌对战 | 后台管理 |
 |:--------:|:--------:|:--------:|
-[我们的德州项目不是网上那种外包团队的德州产品：没有在市场上盈利过，中看不中用，代码中漏洞不少的德州产品；是真正在市场上盈利过，运营多年的德州]
-![3联盟-加入主页](https://github.com/user-attachments/assets/205c0b50-5600-4ab4-a954-e361311a4b9a)
-![3联盟-充值联盟币](https://github.com/user-attachments/assets/e0fc4fe0-61ca-480a-a099-dde20cf38f5a)
-![03赛事4](https://github.com/user-attachments/assets/a755bbb1-70c0-4f3c-9c69-b89377dbbb59)
+## 📸 游戏真实截图 / Screenshots
 
-![02创建1](https://github.com/user-attachments/assets/acc0fa3a-d864-41a3-9d91-a669cf5de648)
-![1管理俱乐部币](https://github.com/user-attachments/assets/722fa342-865b-410b-801b-e5cd11488d12)
-![1房间列表](https://github.com/user-attachments/assets/4ac89b79-94de-4903-8a5a-ed080d5ec24d)
-![01](https://github.com/user-attachments/assets/d1a5299a-ac9a-47e6-9206-d0ebae3a1dec)
-![05牌桌-查看头像1](https://github.com/user-attachments/assets/349d9333-fe5c-46ca-913d-39bc35bc95e0)
-![4房间2-9人桌](https://github.com/user-attachments/assets/0d709180-2259-45b4-9f99-17f0dcb41e3a)
-![4房间2-6人桌](https://github.com/user-attachments/assets/1549d61a-2dc4-4059-ad86-a68464e78d88)
+![MTT报名（门票）](Screenshots/MTT-报名（门票）.jpg)  
+**MTT报名（门票）界面 | MTT Registration**
 
-> 真实界面截图请联系获取演示地址。
+![MTT赛事](Screenshots/MTT赛事.jpg)  
+**MTT赛事界面 | MTT Tournament**
+
+![个人中心](Screenshots/个人中心.jpg)  
+**个人中心界面 | Personal Center**
+
+![俱乐部币](Screenshots/俱乐部币.jpg)  
+**俱乐部币界面 | Club Coin**
+
+![创建俱乐部](Screenshots/创建俱乐部.jpg)  
+**创建俱乐部界面 | Create Club**
+
+![加入联盟](Screenshots/加入联盟.jpg)  
+**加入联盟界面 | Join Alliance**
+
+![好友局](Screenshots/好友局.jpg)  
+**好友局房间 | Friends Room**
+
+![打牌房间](Screenshots/打牌房间.jpg)  
+**打牌房间界面 | Gameplay Room**
+
+![申请加入俱乐部](Screenshots/申请加入俱乐部.jpg)  
+**申请加入俱乐部界面 | Join Club Application**
+
+
+
+
 
 ## 🚀 快速开始
 
