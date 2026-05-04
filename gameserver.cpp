@@ -11,8 +11,10 @@
 
 #include "utils/tarslog.h"
 #include "common/macros.h"
+//#include "protos/headproto.h"
+//#include "protos/dzproto.h"
 #include "head.pb.h"
-#include "cowboy.pb.h"
+#include "dz.pb.h"
 #include "gameroot.h"
 #include "gameserver.h"
 #include "message/onroommessage.h"
@@ -22,6 +24,13 @@ namespace game
 {
     namespace gameserver
     {
+        /**
+         * @brief Constructor for the GameServer class
+         * @param root Pointer to the GameRoot object containing initialization parameters
+         * 
+         * Initializes a new GameServer instance with the provided GameRoot configuration.
+         * Sets up the table pointer and room table ID from the root parameters.
+         */
         GameServer::GameServer(GameRoot *root)
             : _root(root)
             , _pTable(root->sParams.pTable)
@@ -57,13 +66,13 @@ namespace game
             XGameSoProto::TSoMsg somsg = pbToObj<XGameSoProto::TSoMsg>(vecMsgData);
 
             //校验版本
-            if (somsg.nver() != XGameCBProto::iProtoVersion)
+            if (somsg.nver() != XGameDZProto::iProtoVersion)
             {
-                LOG_WARN("client proto version : \"" << somsg.nver() << "\" server proto version : \"" << XGameCBProto::iProtoVersion << "\";");
+                LOG_WARN("client proto version : \"" << somsg.nver() << "\" server proto version : \"" << XGameDZProto::iProtoVersion << "\";");
             }
 
             //校验命令字
-            if (somsg.ncmd() > XGameCBProto::E_CB_MSG_ID_END || somsg.ncmd() < XGameCBProto::E_CB_MSGID_BEGIN)
+            if (somsg.ncmd() > XGameDZProto::MSG_ID_END || somsg.ncmd() < XGameDZProto::MSG_ID_BEGIN)
             {
                 LOG_ERROR("invalid message command type value.");
                 return -1;
@@ -72,7 +81,7 @@ namespace game
             //data
             vector<char> vecOutBuffer;
             vecOutBuffer.insert(vecOutBuffer.begin(), somsg.vecmsgdata().begin(), somsg.vecmsgdata().end());
-            //RLOG_DEBUG << "process game so reqeust, msg size = " << vecOutBuffer.size() << ", msg data len: " << somsg.vecmsgdata().length() << endl;
+            RLOG_DEBUG << "process game so reqeust, msg size = " << vecOutBuffer.size() << ", msg data len: " << somsg.vecmsgdata().length() << endl;
             message::onClientMessage(lPlayerID, somsg.ncmd(), vecOutBuffer, _root);
 
             __CATCH__
@@ -82,7 +91,7 @@ namespace game
 
         int GameServer::toRoomData(const RoomSo::E_SO_TO_ROOM eMSG, void *p)
         {
-            //RLOG_DEBUG << " test send room data, eMSG: " << etos(eMSG) << endl;
+            RLOG_DEBUG << " test send room data, eMSG: " << etos(eMSG) << endl;
             if(_pTable)
             {
                 return _pTable->toRoomData(eMSG, p);
@@ -101,13 +110,13 @@ namespace game
             __TRY__
 
             XGameSoProto::TSoMsg sTSoMsg;
-            sTSoMsg.set_nver(XGameCBProto::iProtoVersion);
+            sTSoMsg.set_nver(XGameDZProto::iProtoVersion);
             sTSoMsg.set_ncmd(eMSG);
             string msgData;
             msgData.assign(vecData.begin(), vecData.end());
             sTSoMsg.set_vecmsgdata(msgData);
             ret = _pTable->doSendGameData(pid, pbTobuffer(sTSoMsg));
-            //RLOG_DEBUG << "send game data, pid : " << pid << ", eMSG: " << eMSG << ", vecData size : " << vecData.size() << endl;
+            RLOG_DEBUG << "send game data, pid : " << pid << ", eMSG: " << eMSG << ", vecData size : " << vecData.size() << endl;
 
             __CATCH__
 
@@ -129,7 +138,7 @@ namespace game
             for (size_t i = 0; i < vecData.size(); ++i)
             {
                 XGameSoProto::TSoMsg sTSoMsg;
-                sTSoMsg.set_nver(XGameCBProto::iProtoVersion);
+                sTSoMsg.set_nver(XGameDZProto::iProtoVersion);
                 sTSoMsg.set_ncmd(eMSG[i]);
                 string msgData;
                 msgData.assign(vecData[i].begin(), vecData[i].end());
@@ -138,7 +147,7 @@ namespace game
             }
 
             ret = _pTable->doSendGameData(pid, vecSendData);
-            //RLOG_DEBUG << "send game data, pid : " << pid << ", vecData size : " << vecData.size() << endl;
+            RLOG_DEBUG << "send game data, pid : " << pid << ", vecData size : " << vecData.size() << endl;
 
             __CATCH__
 
@@ -152,13 +161,13 @@ namespace game
             __TRY__
 
             XGameSoProto::TSoMsg sTSoMsg;
-            sTSoMsg.set_nver(XGameCBProto::iProtoVersion);
+            sTSoMsg.set_nver(XGameDZProto::iProtoVersion);
             sTSoMsg.set_ncmd(eMSG);
             string msgData;
             msgData.assign(vecData.begin(), vecData.end());
             sTSoMsg.set_vecmsgdata(msgData);
             ret = _pTable->doSendAllGameData(pbTobuffer(sTSoMsg));
-            //RLOG_DEBUG << "send all game data, eMSG: " << eMSG << ", vecData size : " << vecData.size() << endl;
+            RLOG_DEBUG << "send all game data, eMSG: " << eMSG << ", vecData size : " << vecData.size() << endl;
 
             __CATCH__
 
@@ -180,7 +189,7 @@ namespace game
             for (size_t i = 0; i < vecData.size(); ++i)
             {
                 XGameSoProto::TSoMsg sTSoMsg;
-                sTSoMsg.set_nver(XGameCBProto::iProtoVersion);
+                sTSoMsg.set_nver(XGameDZProto::iProtoVersion);
                 sTSoMsg.set_ncmd(eMSG[i]);
                 string msgData;
                 msgData.assign(vecData[i].begin(), vecData[i].end());
@@ -189,7 +198,7 @@ namespace game
             }
 
             ret = _pTable->doSendAllGameData(vecSendData);
-            //RLOG_DEBUG << "send all game data, vecData size : " << vecData.size() << endl;
+            RLOG_DEBUG << "send all game data, vecData size : " << vecData.size() << endl;
 
             __CATCH__
 
@@ -203,13 +212,13 @@ namespace game
             __TRY__
 
             XGameSoProto::TSoMsg sTSoMsg;
-            sTSoMsg.set_nver(XGameCBProto::iProtoVersion);
+            sTSoMsg.set_nver(XGameDZProto::iProtoVersion);
             sTSoMsg.set_ncmd(eMSG);
             string msgData;
             msgData.assign(vecData.begin(), vecData.end());
             sTSoMsg.set_vecmsgdata(msgData);
             ret = _pTable->doSendWatchGameData(pbTobuffer(sTSoMsg));
-            //RLOG_DEBUG << "send watch game data, eMSG: " << eMSG << ", vecData size : " << vecData.size() << endl;
+            RLOG_DEBUG << "send watch game data, eMSG: " << eMSG << ", vecData size : " << vecData.size() << endl;
 
             __CATCH__
 
@@ -231,7 +240,7 @@ namespace game
             for (size_t i = 0; i < vecData.size(); ++i)
             {
                 XGameSoProto::TSoMsg sTSoMsg;
-                sTSoMsg.set_nver(XGameCBProto::iProtoVersion);
+                sTSoMsg.set_nver(XGameDZProto::iProtoVersion);
                 sTSoMsg.set_ncmd(eMSG[i]);
                 string msgData;
                 msgData.assign(vecData[i].begin(), vecData[i].end());
@@ -241,7 +250,7 @@ namespace game
             }
 
             ret = _pTable->doSendWatchGameData(vecSendData);
-            //RLOG_DEBUG << "send watch game data, vecData size : " << vecData.size() << endl;
+            RLOG_DEBUG << "send watch game data, vecData size : " << vecData.size() << endl;
 
             __CATCH__
 

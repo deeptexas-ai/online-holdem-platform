@@ -35,6 +35,7 @@ namespace game
     {
         class GameServer;
     }
+
     class GameRoot
     {
     public:
