@@ -63,8 +63,7 @@
 |:--------:|:--------:|:--------:|
 ## 📸 游戏真实截图 / Screenshots
 
-![MTT报名（门票）](Screenshots/MTT-报名（门票）.jpg)  
-**MTT报名（门票）界面 | MTT Registration**
+
 
 ![MTT赛事](Screenshots/MTT赛事.jpg)  
 **MTT赛事界面 | MTT Tournament**
