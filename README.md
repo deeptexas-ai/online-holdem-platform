@@ -1,4 +1,4 @@
-# Texas Hold'em Online Poker Server/德州源码/德州俱乐部/德州私人局  /德州扑克源码/德州扑克在线平台源码 / 德州撲克線上平台源码
+# Texas Hold'em Online Poker Server/德州源码/德州俱乐部/德州私人局/德州扑克源码/德州扑克在线平台源码 / 德州撲克線上平台源码
 **德州扑克源码** · **在线多人德州扑克** · **Real-time Poker Server**  
 **金币大厅 + 俱乐部 + MTT锦标赛 | C++ 高性能服务端 | 支持多人实时对战**
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPLv3-blue.svg)](LICENSE)
