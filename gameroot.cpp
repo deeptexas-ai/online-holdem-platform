@@ -65,19 +65,6 @@ namespace game
         else
         {
             cfg->printConfigFile(sInitParams);
-            con->setRewardJackpotWealth(cfg->getRewardInit());
-            con->setSysJackpotWealth(cfg->getSysInit());
-        }
-
-        if (this->roomid().size() > 4)
-        {
-            int room_type = this->roomid()[0] - '0';
-            int index =  0;
-            if (room_type == 3 || room_type == 9)
-            {
-                index = this->roomid()[3] - '1';
-            }
-            cfg->setInitBetTime(room_type, index);
         }
     }
 
