@@ -1,18 +1,15 @@
-# Texas Hold'em Online Poker Server/德州源码/德州俱乐部/德州私人局/德州扑克源码/德州扑克在线平台源码 / 德州撲克線上平台源码
-**德州扑克源码** · **在线多人德州扑克** · **Real-time Poker Server**  
-**金币大厅 + 俱乐部 + MTT锦标赛 | C++ 高性能服务端 | 支持多人实时对战**
+# Texas Hold'em Online Poker Server/德州源码/德州俱乐部/德州私人局/德州扑克源码/德州扑克在线平台 / 德州撲克線上平台源码
+
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPLv3-blue.svg)](LICENSE)
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
 [![Stars](https://img.shields.io/github/stars/deeptexas-ai/Texas-Hold-em_Online-Poker-Software?style=social)]()
 [![Docker Pulls](https://img.shields.io/docker/pulls/deeptexas/poker_server)]()
 
-**生产级德州扑克服务端** — 已在真实线上环境盈利运营多年，与 HHpoker、WPK 等头部产品直接竞争。
+**生产级德州扑克服务端** — 已在真实线上运营多年是一套生产级德州扑克在线平台源码
 
 支持 SNG、MTT、经典德州、短牌、德州牛仔、奥马哈、大菠萝等 7+ 种玩法，内置语音聊天与联盟模式。
 
-
-一套生产级德州扑克在线平台源码，已在真实环境中运行多年。支持大厅、房间、俱乐部、锦标赛、投注引擎等完整功能，适合搭建商业级德州扑克平台。
 
 ## 📑 目录
 
@@ -52,7 +49,9 @@
 - ✅ **德州牛仔** (Texas Cowboy)
 - ✅ **SNG** (Sit & Go)
 - ✅ **MTT** (Multi-Table Tournament)
-## 联系方式：
+
+
+## 联系：
 
 📱 Telegram: @xuzongbin001
 
@@ -195,8 +194,7 @@ volumes:
 内存占用	< 4GB (2000人负载)
 测试环境: AWS c5.2xlarge (8 vCPU, 16GB RAM)
 
-## 🤝 商业支持
-本项目为 AGPL v3 开源协议免费使用。如需以下商业服务，请联系：
+
 
 ## 服务类型	说明
 🔒 商业授权	去除开源协议限制，闭源使用
@@ -205,6 +203,15 @@ volumes:
 📈 运营指导	游戏运营策略、风控方案
 
 
+## 文档导航
+
+- [德州扑克源码说明](./docs/texas-holdem-source-code.md)
+- [C++ 游戏服务端架构](./docs/server-architecture.md)
+- [构建与环境准备](./docs/build-guide.md)
+- [协议与消息处理](./docs/protocol-message-guide.md)
+- [牌局流程与状态管理](./docs/game-flow.md)
+- [安全、随机数与合规](./docs/security-compliance.md)
+- [常见问题](./docs/faq.md)
 
 
 ## 📜 开源协议
