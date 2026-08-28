@@ -1,5 +1,5 @@
-# Texas Hold'em Online Poker Server/德州源码/德州俱乐部/德州私人局/德州扑克源码/德州扑克在线平台 / 德州撲克線上平台源码
-
+# Texas Hold'em Online Poker Server|德州扑克在线平台源码|德州源码|德州俱乐部|德州撲克線上平台源码
+[简体中文](README.md) | [English](README.en.md) | [繁體中文](README.zh-TW.md)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPLv3-blue.svg)](LICENSE)
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
@@ -213,7 +213,26 @@ volumes:
 - [安全、随机数与合规](./docs/security-compliance.md)
 - [常见问题](./docs/faq.md)
 
+- [项目主页](docs/index.html)
+- [功能介绍](docs/features.html)
+- [架构说明](docs/architecture.html)
+- [部署指南](docs/deployment.html)
+- [合规使用](docs/responsible-use.html)
+## 项目结构建议
 
+```text
+Doc/                    # 原有说明文档
+Screenshots/            # 产品截图
+docs/                   # GitHub Pages 产品与技术文档
+message/                # 消息与协议处理模块
+process/                # 业务流程处理模块
+protos/                 # 协议资源
+utils/                  # 通用工具
+config.example/         # 脱敏配置示例
+scripts/                # 构建、部署和维护脚本
+tests/                  # 规则、结算、接口和压力测试
+.github/workflows/      # CI 与 GitHub Pages 自动发布
+```
 ## 📜 开源协议
 Copyright © 2026 deeptexas-ai
 
