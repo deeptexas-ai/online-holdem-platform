@@ -5,19 +5,192 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Texas Hold'em Online Poker Source Code</title>
   <meta name="description" content="Texas Hold'em online poker platform source code with C++ game server, real-time multiplayer rooms, lobby, tournaments, betting engine, protocols and push service.">
+  <meta name="keywords" content="Texas Holdem source code, online poker platform, C++ poker server, poker game source code, multiplayer poker, poker club source code, poker tournament source code">
+  <link rel="canonical" href="https://deeptexas-ai.github.io/online-holdem-platform/">
   <style>
-body{font-family:Arial,"Microsoft YaHei",sans-serif;margin:0;color:#161b22;background:#f6f8fa;line-height:1.65}
-header{background:#10233f;color:white;padding:48px 20px}
-main{max-width:1080px;margin:0 auto;padding:30px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.card{background:white;border:1px solid #d8dee4;border-radius:8px;padding:18px}
-.tag{display:inline-block;background:#eaf2ff;border:1px solid #c6dbff;border-radius:999px;padding:5px 9px;margin:3px}
-a{color:#0969da}footer{padding:24px 20px;text-align:center;color:#57606a;background:white;border-top:1px solid #d8dee4}
-</style>
+    body {
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      margin: 0;
+      color: #161b22;
+      background: #f6f8fa;
+      line-height: 1.65;
+    }
+    header {
+      background: #10233f;
+      color: white;
+      padding: 48px 20px;
+    }
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 30px 20px 46px;
+    }
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(30px, 5vw, 50px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 36px 0 12px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    p {
+      margin: 0 0 14px;
+    }
+    .lead {
+      max-width: 900px;
+      color: #eaf2ff;
+      font-size: 18px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #d8dee4;
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .screenshot-card {
+      padding: 12px;
+    }
+    .screenshot-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #d8dee4;
+      background: #fff;
+    }
+    .tag {
+      display: inline-block;
+      background: #eaf2ff;
+      border: 1px solid #c6dbff;
+      border-radius: 999px;
+      padding: 5px 9px;
+      margin: 3px;
+      color: #0a4595;
+    }
+    a {
+      color: #0969da;
+    }
+    .button {
+      display: inline-block;
+      margin: 10px 10px 0 0;
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: #fff;
+      background: #0969da;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    footer {
+      padding: 24px 20px;
+      text-align: center;
+      color: #57606a;
+      background: white;
+      border-top: 1px solid #d8dee4;
+    }
+  </style>
 </head>
 <body>
-  <header><h1>Texas Hold'em Online Poker Platform Source Code</h1><p>C++ Texas Hold'em online poker platform source code with multiplayer rooms, lobby, tournaments, betting engine and protocol services.</p></header>
-  <main><section class="grid"><div class="card"><h2>C++ Poker Server</h2><p>Hand state, player actions, betting rounds, settlement and room lifecycle.</p></div><div class="card"><h2>Message System</h2><p>Client messages, room messages, push service, protocol resources and business processing.</p></div><div class="card"><h2>Poker Modes</h2><p>Classic Hold'em, Short Deck, SNG, MTT, Omaha, Pineapple and club/private table extensions.</p></div><div class="card"><h2>Operations</h2><p>Admin management, player management, hand audit, reward configuration and operations data.</p></div></section><section><h2>SEO Keywords</h2><p><span class="tag">Texas Holdem source code</span><span class="tag">online poker platform</span><span class="tag">C++ poker server</span><span class="tag">poker game source code</span><span class="tag">multiplayer poker</span></p></section><p><a href="features.html">Features</a> | <a href="architecture.html">Architecture</a> | <a href="deployment.html">Deployment</a> | <a href="responsible-use.html">Responsible Use</a></p></main>
-  <footer>GitHub: <a href="https://github.com/deeptexas-ai/online-holdem-platform">online-holdem-platform</a> | Telegram @xuzongbin001 | masterai918@gmail.com</footer>
+  <header>
+    <div class="wrap">
+      <h1>Texas Hold'em Online Poker Platform Source Code</h1>
+      <p class="lead">C++ Texas Hold'em online poker platform source code with real-time multiplayer rooms, lobby, tournaments, betting engine, protocol services, push service and operations integration.</p>
+      <a class="button" href="https://github.com/deeptexas-ai/online-holdem-platform">View GitHub Repository</a>
+      <a class="button" href="features.html">Features</a>
+      <a class="button" href="architecture.html">Architecture</a>
+      <a class="button" href="deployment.html">Deployment</a>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Core Modules</h2>
+      <div class="grid">
+        <div class="card"><h3>C++ Poker Server</h3><p>Hand state, player actions, betting rounds, settlement and room lifecycle.</p></div>
+        <div class="card"><h3>Message System</h3><p>Client messages, room messages, push service, protocol resources and business processing.</p></div>
+        <div class="card"><h3>Poker Modes</h3><p>Classic Hold'em, Short Deck, SNG, MTT, Omaha, Pineapple and club/private table extensions.</p></div>
+        <div class="card"><h3>Operations</h3><p>Admin management, player management, hand audit, reward configuration and operations data.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Product Screenshots</h2>
+      <p>Product screenshots are loaded from <code>docs/assets/screenshots/</code>. Since this page is <code>docs/index.html</code>, the correct image path is <code>assets/screenshots/filename.jpg</code>.</p>
+      <div class="grid">
+        <div class="card screenshot-card">
+          <h3>Online Holdem Lobby</h3>
+          <img src="assets/screenshots/001.jpg" alt="Texas Holdem online poker platform source code lobby screenshot" loading="lazy">
+        </div>
+        <div class="card screenshot-card">
+          <h3>Multiplayer Poker Table</h3>
+          <img src="assets/screenshots/002.jpg" alt="Texas Holdem multiplayer poker table source code screenshot" loading="lazy">
+        </div>
+        <div class="card screenshot-card">
+          <h3>Poker Game Interface</h3>
+          <img src="assets/screenshots/1111.jpg" alt="Online poker game source code interface screenshot" loading="lazy">
+        </div>
+        <div class="card screenshot-card">
+          <h3>Private Table And Club</h3>
+          <img src="assets/screenshots/2222.jpg" alt="Texas Holdem poker club private table source code screenshot" loading="lazy">
+        </div>
+        <div class="card screenshot-card">
+          <h3>Tournament Mode</h3>
+          <img src="assets/screenshots/3333.jpg" alt="Texas Holdem poker tournament source code screenshot" loading="lazy">
+        </div>
+        <div class="card screenshot-card">
+          <h3>Hand Records</h3>
+          <img src="assets/screenshots/4444.jpg" alt="Texas Holdem online poker hand records screenshot" loading="lazy">
+        </div>
+        <div class="card screenshot-card">
+          <h3>Operations Dashboard</h3>
+          <img src="assets/screenshots/5555.jpg" alt="Online poker platform operations dashboard source code screenshot" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>SEO Keywords</h2>
+      <p>
+        <span class="tag">Texas Holdem source code</span>
+        <span class="tag">online poker platform</span>
+        <span class="tag">C++ poker server</span>
+        <span class="tag">poker game source code</span>
+        <span class="tag">multiplayer poker</span>
+        <span class="tag">poker club source code</span>
+        <span class="tag">poker tournament source code</span>
+      </p>
+    </section>
+
+    <section>
+      <h2>Documentation</h2>
+      <div class="grid">
+        <div class="card"><h3>Features</h3><p><a href="features.html">Poker modes, message flow, rooms and operations modules</a></p></div>
+        <div class="card"><h3>Architecture</h3><p><a href="architecture.html">C++ server, protocols, push service and data structure</a></p></div>
+        <div class="card"><h3>Deployment</h3><p><a href="deployment.html">GitHub Pages, private configuration and deployment checklist</a></p></div>
+        <div class="card"><h3>Responsible Use</h3><p><a href="responsible-use.html">Compliance, age rating and responsible gaming notes</a></p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    GitHub: <a href="https://github.com/deeptexas-ai/online-holdem-platform">deeptexas-ai/online-holdem-platform</a>
+    | Telegram @xuzongbin001 | masterai918@gmail.com
+  </footer>
 </body>
 </html>
