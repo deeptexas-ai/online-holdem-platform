@@ -1,6 +1,6 @@
 # Contributing
 
-欢迎提交编译修复、测试、协议文档和安全改进。Issue 请包含操作系统、编译器、依赖版本、复现步骤、预期结果和实际结果。Pull Request 应聚焦一个问题并附带相应测试。
-
-请勿提交密码、令牌、服务器地址、私人数据或未获授权的第三方资源。
-
+- Do not commit production secrets, user data, payment keys, admin accounts, risk-control parameters or private operations data.
+- Keep examples desensitized and easy to understand.
+- Document poker rule, hand state, room message, tournament, club and settlement assumptions when changing logic.
+- Add tests for hand flow, settlement, room synchronization, message handling and API changes.

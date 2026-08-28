@@ -1,6 +1,5 @@
 # Security Policy
 
-请勿在公开 Issue 中发布可直接利用的漏洞、凭据或私人数据。报告安全问题时，请通过仓库 About 中的维护者联系方式私下提交受影响模块、版本、复现条件和潜在影响。
+Do not publish API keys, database passwords, production payment credentials, admin accounts, real player data, private operations data, risk-control parameters, real orders or live configuration.
 
-当前公开源码不应被视为已通过安全、公平性或性能审计。生产部署前需要独立审查随机数、洗牌发牌、身份验证、权限、消息、日志和依赖安全。
-
+For security, licensing or cooperation questions, contact `masterai918@gmail.com`.

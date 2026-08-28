@@ -1,10 +1,8 @@
 # Changelog
 
-建议从下一次发布开始采用语义化版本，并在这里记录面向使用者的重要变化。
+## 2026-08-28
 
-## Unreleased
-
-- 优化 README、About、Topics 与项目文档
-- 修正仓库地址、许可证链接和构建说明
-- 补充安全、协议和源码范围说明
-
+- Added optimized Simplified Chinese, English and Traditional Chinese README files.
+- Added GitHub Pages documentation for online Texas Hold'em poker platform source code positioning.
+- Added robots.txt and sitemap.xml for search engine discovery.
+- Added contribution, security, support and deployment checklists.
