@@ -56,10 +56,7 @@
 📱 Telegram: @xuzongbin001
 
 📧 Email: masterai918@gmail.com
-## 📸 界面预览
 
-| 大厅界面 | 牌桌对战 | 后台管理 |
-|:--------:|:--------:|:--------:|
 ## 📸 游戏真实截图 / Screenshots
 
 
