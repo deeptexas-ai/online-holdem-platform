@@ -49,6 +49,33 @@ The public repository should show product structure, selected source examples, s
 - [Architecture](docs/architecture.html)
 - [Deployment](docs/deployment.html)
 - [Responsible Use](docs/responsible-use.html)
+## 📸 游戏真实截图 / Screenshots
+
+
+
+![MTT赛事](Screenshots/MTT赛事.jpg)  
+**MTT赛事界面 | MTT Tournament**
+
+![个人中心](Screenshots/个人中心.jpg)  
+**个人中心界面 | Personal Center**
+
+![俱乐部币](Screenshots/俱乐部币.jpg)  
+**俱乐部币界面 | Club Coin**
+
+![创建俱乐部](Screenshots/创建俱乐部.jpg)  
+**创建俱乐部界面 | Create Club**
+
+![加入联盟](Screenshots/加入联盟.jpg)  
+**加入联盟界面 | Join Alliance**
+
+![好友局](Screenshots/好友局.jpg)  
+**好友局房间 | Friends Room**
+
+![打牌房间](Screenshots/打牌房间.jpg)  
+**打牌房间界面 | Gameplay Room**
+
+![申请加入俱乐部](Screenshots/申请加入俱乐部.jpg)  
+**申请加入俱乐部界面 | Join Club Application**
 
 ## Contact
 
