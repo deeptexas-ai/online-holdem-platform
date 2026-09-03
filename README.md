@@ -1,4 +1,4 @@
-# Texas Hold'em Online Poker Server|德州扑克在线平台源码|德州源码|德州俱乐部|德州撲克線上平台源码
+# Texas Hold'em Online Poker Server|德州扑克在线平台源码|德州源码|德州俱乐部
 [简体中文](README.md) | [English](README.en.md) | [繁體中文](README.zh-TW.md)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPLv3-blue.svg)](LICENSE)
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/)
