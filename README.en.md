@@ -1,87 +1,52 @@
-# Texas Hold'em Online Poker Platform Source Code
+[简体中文](README.md) | [繁體中文](README.zh-TW.md) | [English](README.en.md)
 
-[简体中文](README.md) | [English](README.en.md) | [繁體中文](README.zh-TW.md)
+# Online Texas Hold'em Platform Source Code
 
-Texas Hold'em Online Poker Platform is a commercial-oriented online poker server source code project. It includes C++ game server modules, real-time multiplayer poker rooms, room messages, client messages, push services, protocol files, hand state management, private tables, poker clubs, tournament modes and operations-dashboard integration direction.
+This repository exposes selected C++ game-server components, Tars protocols, room/client message handlers and real product screens for an **online Texas Hold'em platform**. It is useful for studying multiplayer hand state, betting messages, room synchronization, private tables and club-oriented product flows.
 
-## Positioning
+> Scope: code-verified behavior and screenshot-demonstrated product entry points are described separately. The public tree does not include Docker Compose, database initialization scripts or benchmark reports, so it should not be presented as verified one-click production deployment.
 
-- Texas Hold'em poker source code
-- Online poker platform and poker server
-- C++ real-time poker game server
-- Multiplayer hands, points lobby, private tables, poker clubs and union mode
-- Extension direction for SNG, MTT, Short Deck, Omaha, Pineapple and Texas Cowboy
-- Suitable for commercial evaluation, private deployment, source-code learning and secondary development
+## Player-facing product journey
 
-## Core Features
+1. **Account entry**: phone/email login, registration and password recovery are visible in the product UI.
+2. **Lobby and filters**: the lobby shows Hold'em, AOF, 6+ Short Deck, MTT and SNG entries with blinds, duration and seat counts.
+3. **Private table creation**: configure mode, blinds, 60–180 minutes, 2–9 players and speed.
+4. **Club flow**: create or join by club ID and browse joined clubs with table counts.
+5. **Live table**: seats, pot, community cards, hole cards, fold, check and raise controls.
+6. **Player profile**: VIP, inventory, achievements, game statistics, support and settings.
 
-- Poker game service: hand state, player actions, betting rounds, settlement logic and room lifecycle
-- Message handling: client messages, room messages, push service, protocol resources and business modules
-- Multi-mode extension: classic Texas Hold'em, Short Deck, SNG, MTT, Omaha, Pineapple and Texas Cowboy
-- Social gameplay: private tables, friends rooms, poker clubs, unions, voice chat and hand records
-- Operations capability: admin management, player management, hand audit, reward configuration and operations data
-- Technical foundation: C++ services, Tars/protocol files, MySQL, Redis, logging and deployment documentation
+## Real product screens
 
-## Suggested Structure
+| Account entry | Lobby and modes |
+| --- | --- |
+| ![Online Texas Holdem phone and email login](docs/assets/screenshots/001.jpg) | ![Holdem AOF Short Deck MTT and SNG lobby](docs/assets/screenshots/1111.jpg) |
+| Private table setup | Club list |
+| ![Private poker table mode blinds duration and seats](docs/assets/screenshots/2222.jpg) | ![Texas Holdem club list and table counts](docs/assets/screenshots/3333.jpg) |
+| Player profile | Real-time table |
+| ![Poker player profile and statistics](docs/assets/screenshots/4444.jpg) | ![Multiplayer real-time Texas Holdem table](docs/assets/screenshots/5555.jpg) |
 
-```text
-Doc/                    # Existing documentation
-Screenshots/            # Product screenshots
-docs/                   # GitHub Pages product and technical documentation
-message/                # Message and protocol handling modules
-process/                # Business flow processing modules
-protos/                 # Protocol resources
-utils/                  # Common utilities
-config.example/         # Desensitized configuration examples
-scripts/                # Build, deployment and maintenance scripts
-tests/                  # Rule, settlement, API and load tests
-.github/workflows/      # CI and GitHub Pages workflows
-```
+[Open the illustrated English product page](https://deeptexas-ai.github.io/online-holdem-platform/)
 
-## Public Repository Scope
+## Code-verified technical modules
 
-The public repository should show product structure, selected source examples, screenshots and technical documentation. Do not publish real user data, payment secrets, admin accounts, production databases, private operations data, risk-control parameters, online configuration, real orders or unlicensed assets.
+| Module | Main files | Verifiable scope |
+| --- | --- | --- |
+| Game state machine | `process/process.cpp`, `process/process.h` | Begin, ante, banker, hole cards, community cards, turn, river and game end transitions |
+| Table recovery | `gamestation.cpp` | Phase, player state, bets, community cards, hole-card visibility and remaining action time |
+| Message handling | `message/`, `onclientmessage.*`, `onroommessage.*` | Client/room messages and delivery to one player, all players or watchers |
+| Hold'em protocol | `protos/dzproto.tars` | Blinds, minimum buy-in, actions, pot, cards, records, auto bet, buy-in and timer messages |
+| Game service | `gameserver.*`, `gameroot.*` | Room/game communication, broadcasts and the game root object |
+| Push interface | `PushServant.tars`, `PushServer.h` | Push service interface and server entry |
 
-## Documentation
+## Product boundary
 
-- [Project Home](docs/index.html)
-- [Features](docs/features.html)
-- [Architecture](docs/architecture.html)
-- [Deployment](docs/deployment.html)
-- [Responsible Use](docs/responsible-use.html)
-## 📸 游戏真实截图 / Screenshots
-
-
-
-![MTT赛事](Screenshots/MTT赛事.jpg)  
-**MTT赛事界面 | MTT Tournament**
-
-![个人中心](Screenshots/个人中心.jpg)  
-**个人中心界面 | Personal Center**
-
-![俱乐部币](Screenshots/俱乐部币.jpg)  
-**俱乐部币界面 | Club Coin**
-
-![创建俱乐部](Screenshots/创建俱乐部.jpg)  
-**创建俱乐部界面 | Create Club**
-
-![加入联盟](Screenshots/加入联盟.jpg)  
-**加入联盟界面 | Join Alliance**
-
-![好友局](Screenshots/好友局.jpg)  
-**好友局房间 | Friends Room**
-
-![打牌房间](Screenshots/打牌房间.jpg)  
-**打牌房间界面 | Gameplay Room**
-
-![申请加入俱乐部](Screenshots/申请加入俱乐部.jpg)  
-**申请加入俱乐部界面 | Join Club Application**
+- The code directly demonstrates blinds, hole/community cards, turn/river, actions, pot, buy-in, records and game-end flow.
+- Screens demonstrate Hold'em, AOF, 6+ Short Deck, MTT, SNG, private rooms and clubs.
+- Complete rules for every extension, tournament scheduling, payments, database, admin panel, voice and production dependencies require separate acceptance testing.
 
 ## Contact
 
-Telegram: `@xuzongbin001`  
-Email: `masterai918@gmail.com`
+- Telegram: [@xuzongbin001](https://t.me/xuzongbin001)
+- Email: [masterai918@gmail.com](mailto:masterai918@gmail.com)
 
-## License
-
-See the repository license files. Confirm licensing boundaries before public use, commercial deployment or closed-source integration.
+Follow applicable laws, platform policies, privacy and minor-protection requirements. Do not use this project for illegal gambling.

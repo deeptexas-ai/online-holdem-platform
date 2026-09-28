@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+
 Sitemap: https://deeptexas-ai.github.io/online-holdem-platform/sitemap.xml

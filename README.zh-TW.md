@@ -1,87 +1,53 @@
-# Texas Hold'em Online Poker Platform | 德州撲克線上平台源碼
+[简体中文](README.md) | [繁體中文](README.zh-TW.md) | [English](README.en.md)
 
-[簡體中文](README.md) | [English](README.en.md) | [繁體中文](README.zh-TW.md)
+# 德州撲克線上平台原始碼：C++ 即時牌局與房間服務
 
-Texas Hold'em Online Poker Platform 是一套面向商业化评估和二次开发的線上德州撲克服務端源碼項目，核心包含 C++ 遊戲服務端、即時多人牌局、房间消息、客户端消息、推送服务、协议文件、牌局状态、俱乐部/私人局、比赛玩法和後台營運对接方向。
+本倉庫公開一組面向**線上德州撲克平台**的 C++ 遊戲服務端元件、Tars 協定、房間/客戶端訊息處理程式碼與真實產品介面，適合研究多人牌局狀態機、下注訊息、房間同步、私人局與俱樂部流程。
 
-## 核心定位
+> 範圍說明：本頁分開描述程式碼可核實能力與截圖展示入口。倉庫未公開 Docker Compose、資料庫初始化腳本或效能報告，因此不承諾一鍵部署、固定併發量或完整商業交付。
 
-- 德州撲克源碼 / Texas Hold'em poker source code
-- 線上扑克平台 / online poker platform
-- C++ 即時遊戲服務端 / C++ poker game server
-- 多人即時牌局、金币大厅、私人局、俱乐部和联盟模式
-- SNG、MTT、短牌、奥马哈、大菠萝等扩展玩法方向
-- 适合商业评估、私有化部署、源碼学习和二次开发
+## 玩家看到的產品流程
 
-## 核心功能
+1. **登入與帳戶入口**：手機登入、Email 登入、註冊與密碼找回。
+2. **大廳與玩法篩選**：可見經典德州、AOF、6+ 短牌、MTT、SNG 和不同盲注/人數牌桌。
+3. **建立私人牌局**：設定玩法、盲注、60–180 分鐘、2–9 人和速度。
+4. **俱樂部體系**：建立或依 ID 加入俱樂部，查看已加入俱樂部與牌局數量。
+5. **即時牌桌**：座位、底池、公共牌、底牌、棄牌、過牌與加注操作。
+6. **個人資訊**：VIP、背包、成就、遊戲統計、指標統計、客服和設定入口。
 
-- 牌局服务：牌局状态、玩家动作、下注轮次、结算逻辑和房间生命周期
-- 消息处理：客户端消息、房间消息、推送服务、协议资源和业务处理模块
-- 多玩法扩展：经典德州、短牌、SNG、MTT、奥马哈、大菠萝和德州牛仔
-- 社交玩法：私人局、朋友局、俱乐部、联盟、语音聊天和战绩统计
-- 營運能力：後台管理、玩家管理、对局审计、奖励配置和營運數據
-- 技术基础：C++ 服務端、Tars/协议文件、MySQL、Redis、日志和部署文檔
+## 真實產品截圖
 
-## 項目结构建议
+| 登入與帳號 | 大廳與玩法 |
+| --- | --- |
+| ![德州撲克線上平台手機與Email登入](docs/assets/screenshots/001.jpg) | ![德州撲克大廳AOF短牌MTT和SNG](docs/assets/screenshots/1111.jpg) |
+| 建立私人牌局 | 俱樂部列表 |
+| ![德州撲克私人局玩法盲注時間與人數設定](docs/assets/screenshots/2222.jpg) | ![德州撲克俱樂部列表與牌局數量](docs/assets/screenshots/3333.jpg) |
+| 個人中心 | 多人即時牌桌 |
+| ![德州撲克個人中心與統計入口](docs/assets/screenshots/4444.jpg) | ![德州撲克多人即時牌桌](docs/assets/screenshots/5555.jpg) |
 
-```text
-Doc/                    # 原有说明文檔
-Screenshots/            # 产品截图
-docs/                   # GitHub Pages 产品与技术文檔
-message/                # 消息与协议处理模块
-process/                # 业务流程处理模块
-protos/                 # 协议资源
-utils/                  # 通用工具
-config.example/         # 脱敏配置示例
-scripts/                # 构建、部署和维护脚本
-tests/                  # 规则、结算、接口和压力测试
-.github/workflows/      # CI 与 GitHub Pages 自动发布
-```
+[查看繁體中文圖文產品頁](https://deeptexas-ai.github.io/online-holdem-platform/zh-tw/)
 
-## 公開仓库安全建议
+## 程式碼可核實的技術模組
 
-公開仓库适合展示产品结构、部分源碼、截图和技术文檔。不要公開真實用戶數據、支付密钥、後台帳號、生产數據库、私有營運數據、风控参数、线上配置、真實订单或未授权素材。
+| 模組 | 主要檔案 | 可驗證內容 |
+| --- | --- | --- |
+| 遊戲狀態機 | `process/process.cpp`、`process/process.h` | 開局、前注、莊家、底牌、公共牌、轉牌、河牌和結束狀態 |
+| 牌桌恢復 | `gamestation.cpp` | 階段、玩家狀態、下注額、公共牌、底牌可見性與剩餘時間同步 |
+| 訊息處理 | `message/`、`onclientmessage.*`、`onroommessage.*` | 客戶端/房間訊息及單人、全桌、觀察者廣播 |
+| 德州協定 | `protos/dzproto.tars` | 盲注、帶入、下注、底池、發牌、紀錄、自動下注、買入和計時 |
+| 遊戲服務 | `gameserver.*`、`gameroot.*` | 房間與遊戲服務通信、廣播與遊戲根物件 |
+| 推送介面 | `PushServant.tars`、`PushServer.h` | 推送服務介面與服務端入口 |
 
-## 文檔
+## 玩法與產品邊界
 
-- [項目主页](docs/index.html)
-- [功能介绍](docs/features.html)
-- [架构说明](docs/architecture.html)
-- [部署指南](docs/deployment.html)
-- [合规使用](docs/responsible-use.html)
-## 📸 游戏真实截图 / Screenshots
+- 程式碼明確展示盲注、底牌、公共牌、轉牌、河牌、下注、底池、買入、紀錄與結束流程。
+- 截圖展示經典德州、AOF、6+ 短牌、MTT、SNG、私人房與俱樂部入口。
+- 擴展玩法完整規則、賽事調度、支付、資料庫、管理後台、語音與生產部署需另行驗收。
 
+## 聯絡方式
 
+- Telegram：[@xuzongbin001](https://t.me/xuzongbin001)
+- Email：[masterai918@gmail.com](mailto:masterai918@gmail.com)
 
-![MTT赛事](Screenshots/MTT赛事.jpg)  
-**MTT赛事界面 | MTT Tournament**
+請遵守所在地法律、平台規則、隱私及未成年人保護要求，不得用於非法賭博。
 
-![个人中心](Screenshots/个人中心.jpg)  
-**个人中心界面 | Personal Center**
-
-![俱乐部币](Screenshots/俱乐部币.jpg)  
-**俱乐部币界面 | Club Coin**
-
-![创建俱乐部](Screenshots/创建俱乐部.jpg)  
-**创建俱乐部界面 | Create Club**
-
-![加入联盟](Screenshots/加入联盟.jpg)  
-**加入联盟界面 | Join Alliance**
-
-![好友局](Screenshots/好友局.jpg)  
-**好友局房间 | Friends Room**
-
-![打牌房间](Screenshots/打牌房间.jpg)  
-**打牌房间界面 | Gameplay Room**
-
-![申请加入俱乐部](Screenshots/申请加入俱乐部.jpg)  
-**申请加入俱乐部界面 | Join Club Application**
-
-## 联系方式
-
-Telegram：`@xuzongbin001`  
-Email：`masterai918@gmail.com`
-
-## License
-
-具体以仓库 License 文件为准。公開使用、商业部署和闭源集成前，请确认授权边界。
